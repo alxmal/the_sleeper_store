@@ -8,7 +8,7 @@ const helmet = require("helmet");
 const compression = require("compression");
 const unknownEndpoint = require("./middleware/unKnownEndpoint");
 const { handleError } = require("./helpers/error");
-const path = require('path')
+const path = require("path");
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use(morgan("dev"));
 app.use(compression());
 app.use(helmet());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static("public"));
 
 app.use("/api", routes);
 

@@ -12,14 +12,14 @@ const createProduct = async (req, res) => {
   console.log("UPLOADED IMAGES - ", req.files);
 
   const { name, price, description } = req.body;
-  const coverImgUrl = req.files.cover[0].path;
-  const imgUrls = req.files.images.map((obj) => obj.path);
+  const coverImg = req.files.cover[0].filename;
+  const img = req.files.images.map((obj) => obj.filename);
   const newProduct = await productService.addProduct({
     name,
     price,
     description,
-    cover: coverImgUrl,
-    images: imgUrls,
+    cover: coverImg,
+    images: img,
   });
   res.status(200).json(newProduct);
 };
@@ -49,9 +49,9 @@ const updateProduct = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-  const { id } = req.params;
+  //   const { id } = req.params;
 
-  const deletedProduct = await productService.removeProduct(id);
+  const deletedProduct = await productService.removeProduct(req.params);
   res.status(200).json(deletedProduct);
 };
 

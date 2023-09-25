@@ -17,7 +17,7 @@ const Product = ({ product }) => {
         <span className="block relative h-48 rounded overflow-hidden">
           <img
             className="w-full h-full object-contain object-center"
-            src={product.image_url}
+            src={`http://localhost:9000/assets/images/${product.cover}`}
             alt={product.name}
             loading="lazy"
             decoding="async"

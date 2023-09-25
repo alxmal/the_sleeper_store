@@ -153,21 +153,21 @@ ALTER TABLE orders
 ALTER TABLE reviews
     ADD FOREIGN KEY (product_id)
     REFERENCES products (product_id)
-    ON DELETE SET NULL
+    ON DELETE CASCADE
     NOT VALID;
 
 
 ALTER TABLE reviews
     ADD FOREIGN KEY (user_id)
     REFERENCES users (user_id)
-    ON DELETE SET NULL
+    ON DELETE CASCADE
     NOT VALID;
 
 
 ALTER TABLE product_images
     ADD FOREIGN KEY (product_id)
     REFERENCES products (product_id)
-    ON DELETE SET NULL
+    ON DELETE CASCADE
     NOT VALID;
 
 
